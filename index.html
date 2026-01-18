@@ -104,7 +104,6 @@
         .hit-val { font-size: 1.1rem; font-weight: bold; }
         .hit-label { font-size: 0.55rem; opacity: 0.6; text-transform: uppercase; margin-top: 2px; }
 
-        /* Modified Add Panel for Mobile Containment */
         .add-panel { 
             background: var(--card-bg); 
             padding: 15px; 
@@ -112,7 +111,7 @@
             margin-bottom: 20px; 
             border: 1px solid rgba(255,255,255,0.05); 
             width: 100%; 
-            overflow: hidden; /* Ensures nothing spills out */
+            overflow: hidden;
         }
         .add-panel h2 { font-size: 1.1rem; margin-top: 0; margin-bottom: 15px; }
 
@@ -129,7 +128,7 @@
             font-family: inherit; 
             font-size: 0.9rem;
             display: block;
-            appearance: none; /* Mobile reset */
+            appearance: none;
         }
 
         .row { 
@@ -140,7 +139,6 @@
         }
         .row .form-group { flex: 1; min-width: 0; }
 
-        /* Refined payment toggle for touch targets */
         .payment-toggle {
             display: flex; gap: 5px; background: rgba(0,0,0,0.3); padding: 5px; border-radius: 10px; margin-top: 5px;
         }
@@ -251,7 +249,6 @@
                 <select id="product-select" onchange="updateDefaultDate()"></select>
             </div>
             
-            <!-- Retailer & Store Date Row -->
             <div class="row">
                 <div class="form-group">
                     <label>Retailer</label>
@@ -263,7 +260,6 @@
                 </div>
             </div>
             
-            <!-- Qty & Price Row -->
             <div class="row">
                 <div class="form-group">
                     <label>Qty</label>
@@ -334,6 +330,7 @@
                     { name: "3-Pack Blister (3 Packs)", date: "2026-01-30" },
                     { name: "Premium Checklane Blister (1 Pack)", date: "2026-01-30" },
                     { name: "Mini Tin Display (20 Packs)", date: "2026-03-20" },
+                    { name: "Individual Mini Tin (2 Packs)", date: "2026-03-20" },
                     { name: "Illustration Collection (5 Packs)", date: "2026-03-20" },
                     { name: "Gym Leader Collection (2 Packs)", date: "2026-01-30" },
                     { name: "Tech Sticker Collection (3 Packs)", date: "2026-01-30" },
