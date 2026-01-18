@@ -104,32 +104,54 @@
         .hit-val { font-size: 1.1rem; font-weight: bold; }
         .hit-label { font-size: 0.55rem; opacity: 0.6; text-transform: uppercase; margin-top: 2px; }
 
-        .add-panel { background: var(--card-bg); padding: 15px; border-radius: 16px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); width: 100%; }
+        /* Modified Add Panel for Mobile Containment */
+        .add-panel { 
+            background: var(--card-bg); 
+            padding: 15px; 
+            border-radius: 16px; 
+            margin-bottom: 20px; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            width: 100%; 
+            overflow: hidden; /* Ensures nothing spills out */
+        }
         .add-panel h2 { font-size: 1.1rem; margin-top: 0; margin-bottom: 15px; }
 
-        .form-group { margin-bottom: 12px; width: 100%; }
-        label { display: block; font-size: 0.7rem; margin-bottom: 4px; opacity: 0.7; text-transform: uppercase; }
+        .form-group { margin-bottom: 15px; width: 100%; }
+        label { display: block; font-size: 0.7rem; margin-bottom: 6px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.5px; }
 
         select, input {
-            width: 100%; padding: 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-color); border-radius: 8px; font-family: inherit; font-size: 0.9rem;
+            width: 100%; 
+            padding: 12px; 
+            background: rgba(0,0,0,0.4); 
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-color); 
+            border-radius: 8px; 
+            font-family: inherit; 
+            font-size: 0.9rem;
             display: block;
+            appearance: none; /* Mobile reset */
         }
 
+        .row { 
+            display: flex; 
+            gap: 12px; 
+            margin-bottom: 0; 
+            width: 100%;
+        }
+        .row .form-group { flex: 1; min-width: 0; }
+
+        /* Refined payment toggle for touch targets */
         .payment-toggle {
-            display: flex; gap: 5px; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 8px; margin-top: 5px;
+            display: flex; gap: 5px; background: rgba(0,0,0,0.3); padding: 5px; border-radius: 10px; margin-top: 5px;
         }
         .pay-opt {
-            flex: 1; text-align: center; font-size: 0.7rem; padding: 8px; cursor: pointer; border-radius: 6px; opacity: 0.5; transition: 0.2s;
+            flex: 1; text-align: center; font-size: 0.7rem; padding: 10px; cursor: pointer; border-radius: 7px; opacity: 0.5; transition: 0.2s;
         }
         .pay-opt.active { background: var(--accent-color); color: #000; opacity: 1; font-weight: bold; }
 
-        .row { display: flex; gap: 10px; margin-bottom: 0; }
-        .row .form-group { flex: 1; min-width: 0; }
-
         button.action-btn {
-            width: 100%; padding: 14px; background: var(--btn-grad); border: none; color: white;
-            font-weight: bold; font-size: 0.9rem; border-radius: 8px; cursor: pointer; text-transform: uppercase; margin-top: 5px;
+            width: 100%; padding: 16px; background: var(--btn-grad); border: none; color: white;
+            font-weight: bold; font-size: 0.9rem; border-radius: 10px; cursor: pointer; text-transform: uppercase; margin-top: 5px;
         }
 
         .order-group { background: var(--card-bg); border-radius: 12px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
@@ -229,6 +251,7 @@
                 <select id="product-select" onchange="updateDefaultDate()"></select>
             </div>
             
+            <!-- Retailer & Store Date Row -->
             <div class="row">
                 <div class="form-group">
                     <label>Retailer</label>
@@ -240,6 +263,7 @@
                 </div>
             </div>
             
+            <!-- Qty & Price Row -->
             <div class="row">
                 <div class="form-group">
                     <label>Qty</label>
