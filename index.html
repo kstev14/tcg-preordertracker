@@ -90,6 +90,14 @@
         .progress-container { margin: 5px 0 15px 0; background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden; }
         .progress-fill { height: 100%; background: var(--accent-color); width: 0%; transition: width 1s; box-shadow: 0 0 10px var(--accent-color); }
 
+        .expected-hits-panel {
+            background: rgba(255,255,255,0.05); border-radius: 12px; padding: 12px; margin-bottom: 15px; border: 1px dashed var(--accent-color);
+        }
+        .hits-grid { display: flex; justify-content: space-around; gap: 10px; }
+        .hit-item { text-align: center; }
+        .hit-val { font-size: 1.1rem; font-weight: bold; }
+        .hit-label { font-size: 0.55rem; opacity: 0.6; text-transform: uppercase; margin-top: 2px; }
+
         .add-panel { background: var(--card-bg); padding: 20px; border-radius: 16px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
 
         .form-group { margin-bottom: 12px; }
@@ -172,6 +180,26 @@
             <div class="stat-box">
                 <div class="stat-num" id="avg-ppp">$0.00</div>
                 <div class="stat-label">Avg Pack $</div>
+            </div>
+        </div>
+
+        <div class="expected-hits-panel">
+            <div class="progress-label" style="margin-bottom: 8px;">
+                <span>Estimated Pulls</span>
+            </div>
+            <div class="hits-grid">
+                <div class="hit-item">
+                    <div class="hit-val" id="hit-ar">0</div>
+                    <div class="hit-label">Illustration</div>
+                </div>
+                <div class="hit-item">
+                    <div class="hit-val" id="hit-sar" style="color:#ffcc00">0</div>
+                    <div class="hit-label">Special Illus.</div>
+                </div>
+                <div class="hit-item">
+                    <div class="hit-val" id="hit-gold" style="color:#ffae00">0</div>
+                    <div class="hit-label">Gold Hyper</div>
+                </div>
             </div>
         </div>
 
@@ -355,6 +383,11 @@
             document.getElementById('total-spend').innerText = "$" + totalCommitted.toFixed(2);
             document.getElementById('total-owing').innerText = "$" + totalOwing.toFixed(2);
             document.getElementById('avg-ppp').innerText = totalPacks > 0 ? "$" + (totalCommitted / totalPacks).toFixed(2) : "$0.00";
+
+            // Update expected hits
+            document.getElementById('hit-ar').innerText = Math.floor(totalPacks / 6);
+            document.getElementById('hit-sar').innerText = Math.floor(totalPacks / 15);
+            document.getElementById('hit-gold').innerText = Math.floor(totalPacks / 50);
 
             const coverage = Math.round((new Set(themeOrders.map(o => o.product)).size / catalogs[currentTheme].items.length) * 100) || 0;
             document.getElementById('coverage-perc').innerText = coverage + "%";
