@@ -14,27 +14,23 @@
             --status-shipped: #ff9900;
             --status-arrived: #00ff88;
             --ppp-good: #00ff88;
-            --ppp-bad: #ff4444;
+            --danger: #ff4444;
         }
 
-        /* ASCENDED HEROES THEME (Chaos/Galaxy) */
         [data-theme="ascended"] {
             --bg-color: #120524;
             --text-color: #e0d4ff;
             --accent-color: #b300ff;
             --card-bg: #1f0b38;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             --btn-grad: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             --header-glow: 0 0 20px rgba(179, 0, 255, 0.3);
         }
 
-        /* PERFECT ORDER THEME (Order/Hex) */
         [data-theme="order"] {
             --bg-color: #051405;
             --text-color: #ccffcc;
             --accent-color: #44d62c;
             --card-bg: #0a1f0a;
-            --font-main: 'Courier New', Courier, monospace;
             --btn-grad: linear-gradient(180deg, #226615 0%, #44d62c 100%);
             --header-glow: 0 0 20px rgba(68, 214, 44, 0.2);
         }
@@ -45,7 +41,7 @@
             font-family: var(--font-main);
             margin: 0;
             padding: 0;
-            transition: background-color 0.5s ease, color 0.5s ease;
+            transition: background-color 0.5s ease;
             min-height: 100vh;
             padding-bottom: 80px;
         }
@@ -55,298 +51,96 @@
             text-align: center;
             border-bottom: 2px solid var(--accent-color);
             background: rgba(0,0,0,0.4);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; top: 0; z-index: 100;
             backdrop-filter: blur(12px);
             box-shadow: var(--header-glow);
         }
 
-        h1 { margin: 0 0 10px 0; font-size: 1.1rem; letter-spacing: 2px; font-weight: 900; line-height: 1.4; }
+        h1 { margin: 0 0 10px 0; font-size: 1.1rem; letter-spacing: 2px; font-weight: 900; }
 
         #launch-countdown {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            color: var(--accent-color);
-            font-weight: bold;
+            font-size: 0.7rem; text-transform: uppercase; margin-bottom: 15px; color: var(--accent-color); font-weight: bold;
         }
 
         .theme-switch-container {
-            display: flex;
-            justify-content: center;
-            background: rgba(255,255,255,0.05);
-            border-radius: 30px;
-            padding: 4px;
-            width: fit-content;
-            margin: 0 auto;
-            border: 1px solid var(--accent-color);
+            display: flex; justify-content: center; background: rgba(255,255,255,0.05);
+            border-radius: 30px; padding: 4px; width: fit-content; margin: 0 auto; border: 1px solid var(--accent-color);
         }
 
         .theme-btn {
-            padding: 8px 20px;
-            border: none;
-            background: transparent;
-            color: rgba(255,255,255,0.6);
-            font-weight: bold;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: 0.3s;
-            border-radius: 25px;
-            font-family: inherit;
+            padding: 8px 20px; border: none; background: transparent; color: rgba(255,255,255,0.6);
+            font-weight: bold; font-size: 0.7rem; cursor: pointer; border-radius: 25px;
         }
 
-        .theme-btn.active {
-            background: var(--accent-color);
-            color: #000;
-            box-shadow: 0 0 15px var(--accent-color);
-        }
+        .theme-btn.active { background: var(--accent-color); color: #000; box-shadow: 0 0 15px var(--accent-color); }
 
-        .container {
-            padding: 15px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
+        .container { padding: 15px; max-width: 500px; margin: 0 auto; }
 
         .stats-panel {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            border: 1px solid var(--accent-color);
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+            background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid var(--accent-color);
         }
 
-        .stat-box { text-align: center; }
-        .stat-num { font-size: 1.1rem; font-weight: bold; color: var(--accent-color); margin-bottom: 4px; }
-        .stat-label { font-size: 0.65rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-box { text-align: center; padding: 5px; }
+        .stat-num { font-size: 1.2rem; font-weight: bold; color: var(--accent-color); }
+        .stat-label { font-size: 0.6rem; opacity: 0.7; text-transform: uppercase; margin-top: 4px; }
+        .stat-highlight { color: var(--danger); }
 
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.65rem;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            opacity: 0.8;
-        }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.65rem; margin-bottom: 5px; text-transform: uppercase; }
+        .progress-container { margin: 5px 0 15px 0; background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--accent-color); width: 0%; transition: width 1s; box-shadow: 0 0 10px var(--accent-color); }
 
-        .progress-container {
-            margin: 5px 0 15px 0;
-            background: rgba(255,255,255,0.1);
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--accent-color);
-            width: 0%;
-            transition: width 1s ease-in-out;
-            box-shadow: 0 0 10px var(--accent-color);
-        }
-
-        .hype-meter {
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 20px;
-            font-size: 0.75rem;
-            text-align: center;
-            border: 1px dashed var(--accent-color);
-            line-height: 1.5;
-        }
-
-        .add-panel {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .missing-panel {
-            background: rgba(255, 68, 68, 0.05);
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 68, 68, 0.2);
-        }
-
-        .missing-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 10px;
-        }
-
-        .missing-tag {
-            font-size: 0.6rem;
-            background: rgba(255, 68, 68, 0.15);
-            color: #ff8888;
-            padding: 4px 8px;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 68, 68, 0.3);
-            cursor: pointer;
-        }
-        .missing-tag:hover { background: rgba(255, 68, 68, 0.3); }
+        .add-panel { background: var(--card-bg); padding: 20px; border-radius: 16px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
 
         .form-group { margin-bottom: 12px; }
         label { display: block; font-size: 0.7rem; margin-bottom: 4px; opacity: 0.7; text-transform: uppercase; }
 
         select, input {
-            width: 100%;
-            padding: 12px;
-            background: rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-color);
-            border-radius: 8px;
-            font-family: inherit;
-            box-sizing: border-box;
-            font-size: 0.95rem;
+            width: 100%; padding: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-color); border-radius: 8px; font-family: inherit; box-sizing: border-box; font-size: 0.95rem;
         }
-        
-        select:focus, input:focus { outline: none; border-color: var(--accent-color); }
+
+        .payment-toggle {
+            display: flex; gap: 5px; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 8px; margin-top: 5px;
+        }
+        .pay-opt {
+            flex: 1; text-align: center; font-size: 0.7rem; padding: 8px; cursor: pointer; border-radius: 6px; opacity: 0.5; transition: 0.2s;
+        }
+        .pay-opt.active { background: var(--accent-color); color: #000; opacity: 1; font-weight: bold; }
 
         .row { display: flex; gap: 10px; }
 
         button.action-btn {
-            width: 100%;
-            padding: 14px;
-            background: var(--btn-grad);
-            border: none;
-            color: white;
-            font-weight: bold;
-            font-size: 0.9rem;
-            border-radius: 8px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 100%; padding: 14px; background: var(--btn-grad); border: none; color: white;
+            font-weight: bold; font-size: 0.9rem; border-radius: 8px; cursor: pointer; text-transform: uppercase; margin-top: 10px;
         }
 
-        .order-group {
-            background: var(--card-bg);
-            border-radius: 12px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-            overflow: hidden;
-            animation: fadeIn 0.4s ease-out;
-        }
+        .order-group { background: var(--card-bg); border-radius: 12px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
+        .group-header { padding: 15px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); cursor: pointer; }
+        .group-title { font-weight: bold; font-size: 0.9rem; flex: 1; }
+        .group-stats { text-align: right; font-size: 0.7rem; color: var(--accent-color); }
 
-        .group-header {
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255,255,255,0.02);
-            cursor: pointer;
-        }
-
-        .group-title { font-weight: bold; font-size: 0.95rem; flex: 1; margin-right: 10px; }
-        .group-stats { text-align: right; font-size: 0.75rem; color: var(--accent-color); }
-        .expand-icon { font-size: 0.8rem; margin-left: 10px; transition: transform 0.3s; }
-        .order-group.expanded .expand-icon { transform: rotate(180deg); }
-
-        .group-details {
-            display: none;
-            padding: 10px;
-            background: rgba(0,0,0,0.2);
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
+        .group-details { display: none; padding: 10px; background: rgba(0,0,0,0.2); }
         .order-group.expanded .group-details { display: block; }
 
-        .sub-order-card {
-            background: rgba(255,255,255,0.03);
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 8px;
-            border-left: 3px solid var(--accent-color);
-        }
-        .sub-order-card[data-status="Shipped"] { border-left-color: var(--status-shipped); }
-        .sub-order-card[data-status="Arrived"] { border-left-color: var(--status-arrived); opacity: 0.7; }
-
-        .sub-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-        .sub-retailer { font-size: 0.65rem; text-transform: uppercase; font-weight: 800; color: var(--accent-color); }
-        .sub-meta { display: flex; justify-content: space-between; font-size: 0.75rem; opacity: 0.8; margin-top: 4px; }
-
-        .delete-btn { color: #ff5555; background: none; border: none; cursor: pointer; padding: 5px; font-size: 1rem; }
+        .sub-order-card { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px; margin-bottom: 8px; border-left: 3px solid var(--accent-color); }
+        .sub-header { display: flex; justify-content: space-between; font-size: 0.65rem; font-weight: 800; color: var(--accent-color); margin-bottom: 8px; }
         
-        .status-pill {
-            font-size: 0.6rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            background: rgba(255,255,255,0.1);
-            text-transform: uppercase;
-        }
+        .debt-tag { font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(255, 68, 68, 0.2); color: #ff8888; border: 1px solid rgba(255, 68, 68, 0.3); }
+        .paid-tag { font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(0, 255, 136, 0.1); color: #00ff88; }
 
-        .tracking-input {
-            margin-top: 8px;
-            font-size: 0.7rem;
-            padding: 6px;
-            border-color: rgba(255,255,255,0.05);
-        }
+        .sub-meta { display: flex; justify-content: space-between; font-size: 0.75rem; margin-top: 8px; }
+        .tracking-input { margin-top: 10px; font-size: 0.7rem; padding: 8px; }
 
-        .utility-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            opacity: 0.5;
-            flex-wrap: wrap;
-        }
+        .utility-row { display: flex; justify-content: center; gap: 20px; margin-top: 20px; opacity: 0.5; font-size: 0.7rem; }
+        .util-link { text-decoration: underline; cursor: pointer; }
 
-        .util-link {
-            font-size: 0.7rem;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        /* Modal for Backup/Restore */
         #modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center;
         }
-        .modal-content {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 16px;
-            width: 90%;
-            max-width: 400px;
-            border: 1px solid var(--accent-color);
-        }
-        .modal-content textarea {
-            width: 100%;
-            height: 150px;
-            margin: 15px 0;
-            background: #000;
-            color: #0f0;
-            font-family: monospace;
-            font-size: 0.7rem;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #333;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h2 { border-bottom: 1px solid var(--accent-color); padding-bottom: 8px; margin-top:0; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;}
-        .missing-panel h2 { color: #ff8888; border-bottom-color: rgba(255, 68, 68, 0.4); font-size: 0.8rem; }
-
+        .modal-content { background: var(--card-bg); padding: 25px; border-radius: 16px; width: 90%; max-width: 400px; border: 1px solid var(--accent-color); }
+        .modal-content textarea { width: 100%; height: 150px; margin: 15px 0; background: #000; color: #0f0; padding: 10px; border-radius: 8px; font-family: monospace; font-size: 0.7rem; }
     </style>
 </head>
 <body data-theme="ascended">
@@ -365,7 +159,11 @@
         <div class="stats-panel">
             <div class="stat-box">
                 <div class="stat-num" id="total-spend">$0</div>
-                <div class="stat-label">Total Spend</div>
+                <div class="stat-label">Total Committed</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num stat-highlight" id="total-owing">$0</div>
+                <div class="stat-label">Total Owing (Set)</div>
             </div>
             <div class="stat-box">
                 <div class="stat-num" id="total-packs">0</div>
@@ -377,66 +175,55 @@
             </div>
         </div>
 
-        <div>
-            <div class="progress-label">
-                <span>Pack Goal (100)</span>
-                <span id="pack-perc">0%</span>
-            </div>
-            <div class="progress-container">
-                <div id="goal-progress" class="progress-fill"></div>
-            </div>
-
-            <div class="progress-label">
-                <span>Collection Coverage</span>
-                <span id="coverage-perc">0%</span>
-            </div>
-            <div class="progress-container">
-                <div id="coverage-progress" class="progress-fill" style="background: var(--status-arrived);"></div>
-            </div>
+        <div class="progress-label">
+            <span>Series Completion Goal</span>
+            <span id="coverage-perc">0%</span>
         </div>
-
-        <div class="hype-meter" id="hype-box">
-            Add preorders to calculate your expected hits!
-        </div>
-
-        <div class="missing-panel" id="missing-section" style="display: none;">
-            <h2>🚨 MISSING FROM COLLECTION</h2>
-            <div class="missing-list" id="missing-list"></div>
+        <div class="progress-container">
+            <div id="coverage-progress" class="progress-fill"></div>
         </div>
 
         <div class="add-panel">
-            <h2>Track New Purchase</h2>
+            <h2>New Preorder</h2>
             
             <div class="form-group">
                 <label>Item</label>
                 <select id="product-select" onchange="updateDefaultDate()"></select>
             </div>
             
-            <div class="form-group">
-                <label>Retailer</label>
-                <input type="text" id="store-input" placeholder="e.g. Pokemon Center">
-            </div>
-            
             <div class="row">
                 <div class="form-group" style="flex:1">
-                    <label>Qty</label>
-                    <input type="number" id="qty-input" placeholder="1" value="1">
-                </div>
-                <div class="form-group" style="flex:2">
-                    <label>Price (Each)</label>
-                    <input type="number" id="price-input" placeholder="0.00" step="0.01">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-group" style="flex:1">
-                    <label>Wave Date</label>
-                    <input type="date" id="official-date" readonly>
+                    <label>Retailer</label>
+                    <input type="text" id="store-input" placeholder="e.g. PC">
                 </div>
                 <div class="form-group" style="flex:1">
                     <label>Store Date</label>
                     <input type="date" id="store-date">
                 </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group" style="flex:1">
+                    <label>Qty</label>
+                    <input type="number" id="qty-input" value="1">
+                </div>
+                <div class="form-group" style="flex:1">
+                    <label>Total Item Price</label>
+                    <input type="number" id="price-input" placeholder="0.00" step="0.01">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Payment Status</label>
+                <div class="payment-toggle">
+                    <div id="opt-paid" class="pay-opt active" onclick="setPaymentMode('paid')">FULLY PAID</div>
+                    <div id="opt-deposit" class="pay-opt" onclick="setPaymentMode('deposit')">DEPOSIT ONLY</div>
+                </div>
+            </div>
+
+            <div id="deposit-fields" style="display: none;" class="form-group">
+                <label>Amount Paid Now</label>
+                <input type="number" id="deposit-input" placeholder="0.00" step="0.01">
             </div>
 
             <button class="action-btn" onclick="addOrder()">Track Preorder</button>
@@ -447,92 +234,59 @@
         <div class="utility-row">
             <span class="util-link" onclick="copyData()">Export Backup</span>
             <span class="util-link" onclick="openRestoreModal()">Import Data</span>
-            <span class="util-link" onclick="clearAll()">Clear Theme Data</span>
         </div>
-
     </div>
 
-    <!-- Backup/Restore Modal -->
     <div id="modal-overlay">
         <div class="modal-content">
-            <h2 id="modal-title">Import Data</h2>
-            <p style="font-size: 0.7rem; opacity: 0.7;">Paste your backup JSON code below:</p>
+            <h2>Import Data</h2>
             <textarea id="import-area" placeholder="Paste JSON here..."></textarea>
             <button class="action-btn" onclick="importData()">Apply Data</button>
-            <button class="action-btn" style="background: #444; margin-top: 5px;" onclick="closeRestoreModal()">Cancel</button>
+            <button class="action-btn" style="background: #444;" onclick="closeRestoreModal()">Cancel</button>
         </div>
     </div>
 
     <script>
         const packCounts = {
-            "3 Booster Blister": 3,
-            "Elite Trainer Box": 9,
-            "Booster Bundle": 6,
-            "Sleeved Booster": 1,
-            "Checklane Blister": 1,
-            "Booster": 1,
-            "Illustration Collection": 5,
-            "Booster Display Case": 216,
-            "Booster Display Box": 36,
-            "Booster Bundle Case": 60,
-            "Pokémon Day 2026 Collection": 3,
-            "Mega Charizard Tin": 4,
-            "Premium Poster Collection": 10,
-            "First Partners Deluxe Pin": 5,
-            "Mega Meganium ex Box": 4,
-            "Mega Emboar ex Box": 4,
-            "Mega Feraligatr ex Box": 4,
-            "Tech Sticker Collection": 3,
-            "Gym Leader Collection": 2,
-            "Mini Tin": 2,
-            "3-Pack Blister": 3
+            "3 Booster Blister": 3, "Elite Trainer Box": 9, "Booster Bundle": 6, "Sleeved Booster": 1,
+            "Checklane Blister": 1, "Booster": 1, "Illustration Collection": 5, "Display Case": 216,
+            "Display Box": 36, "Bundle Case": 60, "Pokemon Day": 3, "Tin": 4, "Poster": 10, "Pin": 5,
+            "ex Box": 4, "Sticker": 3, "Gym Leader": 2, "3-Pack": 3
         };
 
         const catalogs = {
             ascended: {
                 title: "MEGA EVOLUTION: ASCENDED HEROES",
                 items: [
-                    { name: "Booster Display Case (6 Boxes / 216 Packs)", date: "2026-01-30" },
+                    { name: "Booster Display Case (216 Packs)", date: "2026-01-30" },
                     { name: "Booster Display Box (36 Packs)", date: "2026-01-30" },
                     { name: "Booster Bundle (6 Packs)", date: "2026-04-24" },
-                    { name: "Gym Leader Collection (Erika/Larry - 2 Packs)", date: "2026-01-30" },
-                    { name: "Tech Sticker Collection (Charmander/Gastly - 3 Packs)", date: "2026-01-30" },
-                    { name: "Elite Trainer Box (N's Zekrom - 9 Packs)", date: "2026-02-20" },
-                    { name: "Pokémon Center Elite Trainer Box (N's Zekrom - 11 Packs)", date: "2026-02-20" },
-                    { name: "Mega Charizard Tin (X/Y Variant - 4 Packs)", date: "2026-02-20" },
-                    { name: "Pokémon Day 2026 Collection (3 Packs)", date: "2026-02-27" },
-                    { name: "Mini Tin (Single - 2 Packs)", date: "2026-02-20" },
-                    { name: "Mini Tin (Set of 5 - 10 Packs)", date: "2026-02-20" },
-                    { name: "First Partners Deluxe Pin Collection (5 Packs)", date: "2026-03-20" },
-                    { name: "Premium Poster Collection (Lucario/Gardevoir - 10 Packs)", date: "2026-03-20" },
-                    { name: "Mega Meganium ex Box (4 Packs)", date: "2026-04-24" },
-                    { name: "Mega Emboar ex Box (4 Packs)", date: "2026-04-24" },
-                    { name: "Mega Feraligatr ex Box (4 Packs)", date: "2026-04-24" },
-                    { name: "3-Pack Blister", date: "2026-01-30" },
-                    { name: "Sleeved Booster Pack", date: "2026-01-30" }
+                    { name: "Elite Trainer Box (9 Packs)", date: "2026-02-20" },
+                    { name: "Mega Charizard Tin (4 Packs)", date: "2026-02-20" },
+                    { name: "Premium Poster Collection (10 Packs)", date: "2026-03-20" },
+                    { name: "Mega Starter ex Box (4 Packs)", date: "2026-04-24" }
                 ]
             },
             order: {
                 title: "MEGA EVOLUTION: PERFECT ORDER",
                 items: [
-                    { name: "Mega Evolutions 3: Perfect Order Checklane Blister", date: "2026-06-15" },
-                    { name: "Mega Evolutions 3: Perfect Order 3 Booster Blister", date: "2026-06-15" },
-                    { name: "Mega Evolutions 3: Perfect Order Elite Trainer Box", date: "2026-06-15" },
-                    { name: "Mega Evolutions 3: Perfect Order Booster Bundle", date: "2026-06-15" },
-                    { name: "Mega Evolutions 3: Perfect Order Booster", date: "2026-06-15" },
-                    { name: "Mega Evolutions 3: Perfect Order Sleeved Booster", date: "2026-06-15" },
-                    { name: "First Partner Illustration Collection - Series 1", date: "2026-07-10" }
+                    { name: "Perfect Order Elite Trainer Box", date: "2026-06-15" },
+                    { name: "Perfect Order Booster Bundle", date: "2026-06-15" },
+                    { name: "Perfect Order Booster Box", date: "2026-06-15" }
                 ]
             }
         };
 
         let currentTheme = 'ascended';
+        let paymentMode = 'paid';
         let expandedGroups = new Set();
-        let orders = JSON.parse(localStorage.getItem('tcgOrders_final')) || [];
+        let orders = JSON.parse(localStorage.getItem('tcgOrders_v2')) || [];
 
-        function init() {
-            const savedTheme = localStorage.getItem('tcgTheme_current') || 'ascended';
-            setTheme(savedTheme);
+        function setPaymentMode(mode) {
+            paymentMode = mode;
+            document.getElementById('opt-paid').className = mode === 'paid' ? 'pay-opt active' : 'pay-opt';
+            document.getElementById('opt-deposit').className = mode === 'deposit' ? 'pay-opt active' : 'pay-opt';
+            document.getElementById('deposit-fields').style.display = mode === 'deposit' ? 'block' : 'none';
         }
 
         function setTheme(theme) {
@@ -540,308 +294,130 @@
             localStorage.setItem('tcgTheme_current', theme);
             document.body.setAttribute('data-theme', theme);
             document.getElementById('app-title').innerText = catalogs[theme].title;
-            
-            document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(`btn-${theme}`).classList.add('active');
+            document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.id === `btn-${theme}`));
 
             const select = document.getElementById('product-select');
-            select.innerHTML = "";
-            catalogs[theme].items.forEach(item => {
-                let opt = document.createElement('option');
-                opt.value = item.name;
-                opt.innerText = item.name;
-                opt.dataset.date = item.date;
-                select.appendChild(opt);
-            });
-
+            select.innerHTML = catalogs[theme].items.map(i => `<option value="${i.name}" data-date="${i.date}">${i.name}</option>`).join('');
             updateDefaultDate();
             renderOrders();
         }
 
         function updateDefaultDate() {
-            const select = document.getElementById('product-select');
-            const selectedOpt = select.options[select.selectedIndex];
-            if (!selectedOpt) return;
-            const dateValue = selectedOpt.dataset.date;
-            document.getElementById('official-date').value = dateValue;
-            document.getElementById('store-date').value = dateValue;
-        }
-
-        function updateCountdown() {
-            const items = catalogs[currentTheme].items;
-            if(!items.length) return;
-            const launch = new Date(items[0].date);
-            const today = new Date();
-            today.setHours(0,0,0,0);
-            const diff = Math.ceil((launch - today) / (1000 * 60 * 60 * 24));
-            const el = document.getElementById('launch-countdown');
-            if (diff > 0) el.innerText = `LAUNCH IN: ${diff} DAYS`;
-            else if (diff === 0) el.innerText = `LAUNCH DAY IS TODAY!`;
-            else el.innerText = `SET HAS LAUNCHED`;
+            const opt = document.getElementById('product-select').selectedOptions[0];
+            if (opt) document.getElementById('store-date').value = opt.dataset.date;
         }
 
         function addOrder() {
             const product = document.getElementById('product-select').value;
             const store = document.getElementById('store-input').value;
             const qty = parseInt(document.getElementById('qty-input').value) || 1;
-            const price = parseFloat(document.getElementById('price-input').value) || 0;
-            const officialDate = document.getElementById('official-date').value;
+            const totalPrice = parseFloat(document.getElementById('price-input').value) || 0;
             const storeDate = document.getElementById('store-date').value;
+            const deposit = paymentMode === 'deposit' ? (parseFloat(document.getElementById('deposit-input').value) || 0) : totalPrice;
 
-            if(!store) { showMsg("Retailer name required"); return; }
+            if(!store) return alert("Enter retailer");
 
-            let packsPerItem = 0;
-            const keysByLength = Object.keys(packCounts).sort((a,b) => b.length - a.length);
-            for (const key of keysByLength) {
-                if (product.includes(key)) {
-                    packsPerItem = packCounts[key];
-                    break;
-                }
-            }
+            let packs = 0;
+            for (let key in packCounts) { if (product.includes(key)) { packs = packCounts[key]; break; } }
 
-            const newOrder = {
+            orders.push({
                 id: Date.now(),
                 theme: currentTheme,
-                product,
-                store,
-                qty,
-                price,
-                totalPacks: packsPerItem * qty,
-                officialDate,
-                storeDate: storeDate || officialDate,
+                product, store, qty,
+                totalPrice,
+                amountPaid: deposit,
+                totalPacks: packs * qty,
+                storeDate,
                 status: 'Ordered',
                 tracking: ''
-            };
+            });
 
-            orders.push(newOrder);
             saveData();
             renderOrders();
             document.getElementById('store-input').value = '';
             document.getElementById('price-input').value = '';
-            showMsg("Order Added!");
-        }
-
-        function selectMissing(name) {
-            const select = document.getElementById('product-select');
-            select.value = name;
-            updateDefaultDate();
-            document.getElementById('store-input').focus();
-        }
-
-        function toggleGroup(productName) {
-            if (expandedGroups.has(productName)) {
-                expandedGroups.delete(productName);
-            } else {
-                expandedGroups.add(productName);
-            }
-            renderOrders();
-        }
-
-        function updateStatus(id, newStatus) {
-            const idx = orders.findIndex(o => o.id === id);
-            if (idx > -1) {
-                orders[idx].status = newStatus;
-                saveData();
-                renderOrders();
-            }
-        }
-
-        function updateTracking(id, val) {
-            const idx = orders.findIndex(o => o.id === id);
-            if (idx > -1) {
-                orders[idx].tracking = val;
-                saveData();
-            }
-        }
-
-        function deleteOrder(id) {
-            orders = orders.filter(o => o.id !== id);
-            saveData();
-            renderOrders();
-        }
-
-        function saveData() {
-            localStorage.setItem('tcgOrders_final', JSON.stringify(orders));
+            document.getElementById('deposit-input').value = '';
         }
 
         function renderOrders() {
-            updateCountdown();
-            const listContainer = document.getElementById('grouped-order-list');
-            listContainer.innerHTML = "";
-            
+            const list = document.getElementById('grouped-order-list');
+            list.innerHTML = "";
             const themeOrders = orders.filter(o => o.theme === currentTheme);
-            
-            // Coverage Logic
-            const catalogItems = catalogs[currentTheme].items;
-            const orderedProductNames = new Set(themeOrders.map(o => o.product));
-            const missingItems = catalogItems.filter(item => !orderedProductNames.has(item.name));
-            
-            const coveragePerc = Math.round((orderedProductNames.size / catalogItems.length) * 100);
-            document.getElementById('coverage-perc').innerText = coveragePerc + "%";
-            document.getElementById('coverage-progress').style.width = coveragePerc + "%";
 
-            const missingSection = document.getElementById('missing-section');
-            const missingList = document.getElementById('missing-list');
-
-            if (missingItems.length > 0) {
-                missingSection.style.display = 'block';
-                missingList.innerHTML = missingItems.map(item => `
-                    <div class="missing-tag" onclick="selectMissing('${item.name.replace(/'/g, "\\'")}')">
-                        + ${item.name}
-                    </div>
-                `).join('');
-            } else {
-                missingSection.style.display = 'none';
-            }
-
-            // Statistics Calculation
-            let totalPacks = 0;
-            let totalSpend = 0;
+            let totalPacks = 0, totalCommitted = 0, totalOwing = 0;
             themeOrders.forEach(o => {
-                totalPacks += (o.totalPacks || 0);
-                totalSpend += (o.qty * o.price);
+                totalPacks += o.totalPacks;
+                totalCommitted += o.totalPrice;
+                totalOwing += (o.totalPrice - o.amountPaid);
             });
 
             document.getElementById('total-packs').innerText = totalPacks;
-            document.getElementById('total-spend').innerText = "$" + totalSpend.toFixed(2);
-            document.getElementById('avg-ppp').innerText = totalPacks > 0 ? "$" + (totalSpend / totalPacks).toFixed(2) : "$0.00";
-            
-            const packGoal = 100;
-            const packPerc = Math.min(Math.round((totalPacks / packGoal) * 100), 100);
-            document.getElementById('pack-perc').innerText = packPerc + "%";
-            document.getElementById('goal-progress').style.width = packPerc + "%";
+            document.getElementById('total-spend').innerText = "$" + totalCommitted.toFixed(2);
+            document.getElementById('total-owing').innerText = "$" + totalOwing.toFixed(2);
+            document.getElementById('avg-ppp').innerText = totalPacks > 0 ? "$" + (totalCommitted / totalPacks).toFixed(2) : "$0.00";
 
-            const sirHits = (totalPacks / 32).toFixed(1);
-            const goldHits = (totalPacks / 64).toFixed(1);
-            document.getElementById('hype-box').innerHTML = totalPacks > 0 ? 
-                `🔥 Hits Projection: <strong>${sirHits}</strong> Alt Rares | <strong>${goldHits}</strong> Gold Rares<br>
-                 <small style="opacity:0.6">Based on ${totalPacks} packs</small>` :
-                `Add preorders to calculate your expected hits!`;
+            const coverage = Math.round((new Set(themeOrders.map(o => o.product)).size / catalogs[currentTheme].items.length) * 100) || 0;
+            document.getElementById('coverage-perc').innerText = coverage + "%";
+            document.getElementById('coverage-progress').style.width = coverage + "%";
 
-            // Grouping Logic
             const groups = {};
-            themeOrders.forEach(o => {
-                if (!groups[o.product]) groups[o.product] = [];
-                groups[o.product].push(o);
-            });
+            themeOrders.forEach(o => { if(!groups[o.product]) groups[o.product] = []; groups[o.product].push(o); });
 
-            Object.keys(groups).sort().forEach(productName => {
-                const productOrders = groups[productName];
-                const totalQty = productOrders.reduce((sum, o) => sum + o.qty, 0);
-                const totalPacksGroup = productOrders.reduce((sum, o) => sum + o.totalPacks, 0);
-                const isExpanded = expandedGroups.has(productName);
-
-                const groupDiv = document.createElement('div');
-                groupDiv.className = `order-group ${isExpanded ? 'expanded' : ''}`;
+            Object.keys(groups).forEach(name => {
+                const groupOrders = groups[name];
+                const isExpanded = expandedGroups.has(name);
+                const gDiv = document.createElement('div');
+                gDiv.className = `order-group ${isExpanded ? 'expanded' : ''}`;
                 
-                const escapedProductName = productName.replace(/'/g, "\\'");
+                const groupOwing = groupOrders.reduce((s, o) => s + (o.totalPrice - o.amountPaid), 0);
 
-                groupDiv.innerHTML = `
-                    <div class="group-header" onclick="toggleGroup('${escapedProductName}')">
-                        <div class="group-title">${productName}</div>
+                gDiv.innerHTML = `
+                    <div class="group-header" onclick="toggleGroup('${name.replace(/'/g, "\\'")}')">
+                        <div class="group-title">${name}</div>
                         <div class="group-stats">
-                            <div>${totalQty}x Units</div>
-                            <div style="font-size: 0.6rem; opacity: 0.7;">${totalPacksGroup} Packs</div>
+                            <div>${groupOrders.reduce((s,o)=>s+o.qty,0)} Units</div>
+                            ${groupOwing > 0 ? `<div style="color:var(--danger)">Owing: $${groupOwing.toFixed(2)}</div>` : `<div style="color:var(--status-arrived)">Fully Paid</div>`}
                         </div>
-                        <div class="expand-icon">▼</div>
                     </div>
                     <div class="group-details">
-                        ${productOrders.map(o => {
-                            const today = new Date();
-                            today.setHours(0,0,0,0);
-                            const target = new Date(o.storeDate);
-                            const diffTime = Math.ceil((target - today) / (1000 * 60 * 60 * 24));
-                            let timeLabel = diffTime > 0 ? `${diffTime}d left` : (diffTime === 0 ? 'Today' : 'Overdue');
-                            if(o.status === 'Arrived') timeLabel = "In Hand";
-
-                            return `
-                            <div class="sub-order-card" data-status="${o.status}">
+                        ${groupOrders.map(o => `
+                            <div class="sub-order-card">
                                 <div class="sub-header">
-                                    <span class="sub-retailer">${o.store}</span>
-                                    <div style="display:flex; align-items:center; gap:8px;">
-                                        <select class="status-pill" onchange="updateStatus(${o.id}, this.value); event.stopPropagation();">
-                                            <option value="Ordered" ${o.status === 'Ordered' ? 'selected' : ''}>Ordered</option>
-                                            <option value="Shipped" ${o.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
-                                            <option value="Arrived" ${o.status === 'Arrived' ? 'selected' : ''}>Arrived</option>
-                                        </select>
-                                        <button class="delete-btn" onclick="deleteOrder(${o.id}); event.stopPropagation();">&times;</button>
-                                    </div>
+                                    <span>${o.store}</span>
+                                    ${o.totalPrice - o.amountPaid > 0 ? `<span class="debt-tag">Owing: $${(o.totalPrice - o.amountPaid).toFixed(2)}</span>` : `<span class="paid-tag">Paid</span>`}
                                 </div>
                                 <div class="sub-meta">
-                                    <span>${o.qty}x @ $${o.price.toFixed(2)}</span>
-                                    <span style="color:var(--accent-color); font-weight:bold;">${timeLabel}</span>
+                                    <span>${o.qty}x | Total: $${o.totalPrice.toFixed(2)}</span>
+                                    <select onchange="updateStatus(${o.id}, this.value)">
+                                        <option ${o.status==='Ordered'?'selected':''}>Ordered</option>
+                                        <option ${o.status==='Shipped'?'selected':''}>Shipped</option>
+                                        <option ${o.status==='Arrived'?'selected':''}>Arrived</option>
+                                    </select>
                                 </div>
-                                <input type="text" class="tracking-input" placeholder="Tracking #" value="${o.tracking || ''}" onchange="updateTracking(${o.id}, this.value)" onclick="event.stopPropagation()">
-                                <div class="sub-meta" style="opacity:0.5; font-size: 0.6rem;">
-                                    <span>Total: $${(o.qty * o.price).toFixed(2)}</span>
-                                    <span>ETA: ${o.storeDate}</span>
-                                </div>
+                                <input type="text" class="tracking-input" placeholder="Tracking #" value="${o.tracking}" onchange="updateTracking(${o.id}, this.value)">
+                                <button onclick="deleteOrder(${o.id})" style="background:none; border:none; color:var(--danger); font-size:0.6rem; margin-top:5px; cursor:pointer;">REMOVE ORDER</button>
                             </div>
-                            `;
-                        }).join('')}
+                        `).join('')}
                     </div>
                 `;
-                listContainer.appendChild(groupDiv);
+                list.appendChild(gDiv);
             });
         }
 
-        function copyData() {
-            const text = JSON.stringify(orders, null, 2);
-            const el = document.createElement('textarea');
-            el.value = text;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            showMsg("Backup JSON copied to clipboard!");
+        function toggleGroup(n) { expandedGroups.has(n) ? expandedGroups.delete(n) : expandedGroups.add(n); renderOrders(); }
+        function updateStatus(id, s) { orders.find(o=>o.id===id).status = s; saveData(); renderOrders(); }
+        function updateTracking(id, t) { orders.find(o=>o.id===id).tracking = t; saveData(); }
+        function deleteOrder(id) { orders = orders.filter(o=>o.id!==id); saveData(); renderOrders(); }
+        function saveData() { localStorage.setItem('tcgOrders_v2', JSON.stringify(orders)); }
+        function copyData() { navigator.clipboard.writeText(JSON.stringify(orders)); alert("Backup copied!"); }
+        function openRestoreModal() { document.getElementById('modal-overlay').style.display = 'flex'; }
+        function closeRestoreModal() { document.getElementById('modal-overlay').style.display = 'none'; }
+        function importData() { 
+            try { orders = JSON.parse(document.getElementById('import-area').value); saveData(); setTheme(currentTheme); closeRestoreModal(); } 
+            catch(e) { alert("Invalid data"); } 
         }
 
-        function openRestoreModal() {
-            document.getElementById('modal-overlay').style.display = 'flex';
-            document.getElementById('import-area').value = '';
-            document.getElementById('import-area').focus();
-        }
-
-        function closeRestoreModal() {
-            document.getElementById('modal-overlay').style.display = 'none';
-        }
-
-        function importData() {
-            try {
-                const raw = document.getElementById('import-area').value;
-                if(!raw.trim()) return;
-                const parsed = JSON.parse(raw);
-                if(Array.isArray(parsed)) {
-                    orders = parsed;
-                    saveData();
-                    renderOrders();
-                    closeRestoreModal();
-                    showMsg("Data Imported Successfully!");
-                } else {
-                    showMsg("Error: Invalid Backup Format");
-                }
-            } catch(e) {
-                showMsg("Error: Could not parse JSON");
-            }
-        }
-
-        function clearAll() {
-            if(confirm("Clear all preorders for this theme?")) {
-                orders = orders.filter(o => o.theme !== currentTheme);
-                saveData();
-                renderOrders();
-            }
-        }
-
-        function showMsg(m) {
-            const toast = document.createElement('div');
-            toast.style.cssText = "position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#333; color:white; padding:10px 20px; border-radius:30px; font-size:0.8rem; z-index:2000; border: 1px solid var(--accent-color);";
-            toast.innerText = m;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 2000);
-        }
-
-        init();
+        setTheme('ascended');
     </script>
 </body>
 </html>
